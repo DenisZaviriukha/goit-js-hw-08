@@ -10,9 +10,9 @@ fillForm()
 function fillForm() {
   const faceControl  = localStorage.getItem(STORAGE_KEY)
   if (JSON.parse(faceControl)) {
-    b = JSON.parse(faceControl)
-    email.value = b.email
-    message.value = b.message
+    let test = JSON.parse(faceControl)
+    email.value = test.email
+    message.value = test.message
   } else {
     email.value = ''
     message.value = ''
