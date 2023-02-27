@@ -7,15 +7,13 @@ let array = 0
 import throttle from "lodash.throttle"
 const STORAGE_KEY = "videoplayer-current-time"
 
+if(!localStorage.getItem(STORAGE_KEY)){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(array))
+}
+
 const saveTools = throttle(() => {
-    try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(array));
-        console.log(localStorage.getItem(STORAGE_KEY));
-    }
-    catch {
-        console.log('error');
-        localStorage.setItem(STORAGE_KEY, 0)
-    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(array));
+    console.log(localStorage.getItem(STORAGE_KEY));
 }, 1000)
 
 player.on('play', function () {
